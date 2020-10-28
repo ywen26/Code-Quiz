@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="top">
+        <div id="view-scores">View Highscores</div>
+        <div id="time">Time: <span>120</span></div>
+    </div>
+
+    <div id="intro">
+        <h1>Coding Quiz Challenge</h1>
+        <br>
+        <p>
+            You will have two minutes to complete this 10 multiple-choice questions quiz. Each 
+            question only has one correct answer and you will get one point for each question 
+            if you answer correctly, and you won't be able to go back to previous questions once 
+            you select answer. Try you best to get the high scores!
+        </p>
+        <br>
+        <button id="start-btn">Start</button>
+    </div>
+
+    <div id="quiz-content" style="display: none">
+        <h3 id="questions"></h3>
+        <button id="answer-A"></button>
+        <button id="answer-B"></button>
+        <button id="answer-C"></button>
+        <button id="answer-D"></button>
+        <p id="hinter"></p>
+    </div>
+
+    <div style="display:none">
+        <h2>All done!</h2>
+        <p>Your scores: <span> </span></p>
+        <div>Please enter your initial: <input> </input></div>
+        <button>submit</button>
+    </div>
+
+    <div style="display: none">
+        <h2>Highscores</h2>
+        <div id="high-scores"></div>
+        <button>Go Back</button>
+        <button>Clear Highscores</button>
+    </div>
+
+</body>
+</html>

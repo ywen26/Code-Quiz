@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: lightyellow;
+}
+
+.top {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    font-size: 120%;
+}
+
+#view-scores {
+    margin-right: 200px;
+}
+
+#time {
+    margin-left: 200px;
+}
+
+#intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px 42ex 0 42ex;
+}
+
+#intro p {
+    line-height: 1.2;
+    text-align: center;
+    font-size: 120%;
+}
+
+#start-btn {
+    font-size: 150%;
+    padding: 5px 20px 5px 20px;
+}
