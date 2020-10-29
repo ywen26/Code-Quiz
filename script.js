@@ -1,3 +1,12 @@
+var introEl = document.getElementById("intro");
+var startBtn = document.getElementById("start-btn");
+var quizEl = document.getElementById("quiz-content");
+var question = document.getElementById("questions");
+var answerA = document.getElementById("answer-A");
+var answerB = document.getElementById("answer-B");
+var answerC = document.getElementById("answer-C");
+var answerD = document.getElementById("answer-D");
+
 var questions = [
     {
         question: "Inside which HTML element do we put the JavaScript?",
@@ -71,3 +80,21 @@ var questions = [
         correctAnswer: "B"
     }
 ]
+
+var runningQuestion = 0;
+
+function renderQuestion() {
+    var q = questions[runningQuestion];
+
+    question.textContent = q.question;
+    answerA.textContent = q.answerA;
+    answerB.textContent = q.answerB;
+    answerC.textContent = q.answerC;
+    answerD.textContent = q.answerD;
+}
+
+startBtn.addEventListener("click", function() {
+    introEl.style.display = "none";
+    renderQuestion();
+    quizEl.style.display = "block";
+});

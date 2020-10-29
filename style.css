@@ -41,3 +41,20 @@ body {
     font-size: 150%;
     padding: 5px 20px 5px 20px;
 }
+
+#quiz-content {
+    margin: 50px 42ex 0 42ex;
+}
+
+#questions {
+    margin-bottom: 10px;
+    font-size: 130%;
+}
+
+#answer-A, #answer-B, #answer-C, #answer-D {
+    width: 100%;
+    margin-top: 10px;
+    text-align: left;
+    padding: 10px 0 10px 10px;
+    font-size: 100%;
+}
