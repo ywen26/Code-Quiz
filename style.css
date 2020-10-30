@@ -58,3 +58,21 @@ body {
     padding: 10px 0 10px 10px;
     font-size: 100%;
 }
+
+#done {
+    margin: 50px 42ex 0 42ex;
+}
+
+#done h2{
+    font-size: 150%;
+}
+
+.done-section {
+    margin-top: 10px;
+    font-size: 120%;
+}
+
+#submit-btn {
+    padding: 5px 10px 5px 10px;
+    font-size: 100%;
+}

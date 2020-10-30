@@ -6,14 +6,18 @@ var answerA = document.getElementById("answer-A");
 var answerB = document.getElementById("answer-B");
 var answerC = document.getElementById("answer-C");
 var answerD = document.getElementById("answer-D");
+var hinterEl = document.getElementById("hinter");
 var doneEl = document.getElementById("done");
+var totalScore = document.getElementById("total-score");
+var submitBtn = document.getElementById("submit-btn");
+var showScore = document.getElementById("show-score");
 
 var questions = [
     {
         question: "Inside which HTML element do we put the JavaScript?",
         answerA: "A) <javascript>",
         answerB: "B) <js>",
-        answerC: "C) <script",
+        answerC: "C) <script>",
         answerD: "D) <scripting>",
         correctAnswer: "C"
     }, {
@@ -83,7 +87,7 @@ var questions = [
 ]
 
 var runningQuestion = 0;
-var count = 0;
+var ScoreCount = 0;
 
 function renderQuestion() {
     var q = questions[runningQuestion];
@@ -101,9 +105,17 @@ startBtn.addEventListener("click", function() {
     quizEl.style.display = "block";
 });
 
+function correctAnswer() {
+    hinterEl.textContent = "Correct!"
+}
+
+function wrongAnswer() {
+    hinterEl.textContent = "Wrong!"
+}
+
 function checkAnswer(answer) {
     if (answer == questions[runningQuestion].correctAnswer) {
-        count ++; 
+        ScoreCount ++; 
     } 
 
     if (runningQuestion < 9) {
@@ -115,4 +127,11 @@ function checkAnswer(answer) {
         doneEl.style.display = "block";
     }
 
+    totalScore.textContent = ScoreCount;
+
 }
+
+submitBtn.addEventListener("click", function() {
+    doneEl.style.display = "none";
+    showScore.style.display = "block";
+})
