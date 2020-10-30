@@ -27,21 +27,21 @@
 
     <div id="quiz-content" style="display: none">
         <h3 id="questions"></h3>
-        <button id="answer-A"></button>
-        <button id="answer-B"></button>
-        <button id="answer-C"></button>
-        <button id="answer-D"></button>
+        <button id="answer-A" onclick="checkAnswer('A')"></button>
+        <button id="answer-B" onclick="checkAnswer('B')"></button>
+        <button id="answer-C" onclick="checkAnswer('C')"></button>
+        <button id="answer-D" onclick="checkAnswer('D')"></button>
         <p id="hinter"></p>
     </div>
 
-    <div style="display:none">
+    <div id ="done" style="display:none">
         <h2>All done!</h2>
         <p>Your scores: <span id="total-score"> </span></p>
         <div>Please enter your initial: <input id="initial"> </input></div>
         <button id="submit-btn">submit</button>
     </div>
 
-    <div style="display: none">
+    <div id="show-score" style="display: none">
         <h2>Highscores</h2>
         <div id="high-scores"></div>
         <button>Go Back</button>

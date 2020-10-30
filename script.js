@@ -6,6 +6,7 @@ var answerA = document.getElementById("answer-A");
 var answerB = document.getElementById("answer-B");
 var answerC = document.getElementById("answer-C");
 var answerD = document.getElementById("answer-D");
+var doneEl = document.getElementById("done");
 
 var questions = [
     {
@@ -72,7 +73,7 @@ var questions = [
         answerD: "D) None of the above",
         correctAnswer: "A"
     }, {
-        queston: "In Javascript, which of the following is NOT an assignment operator?",
+        question: "In Javascript, which of the following is NOT an assignment operator?",
         answerA: "A) +=",
         answerB: "B) ||",
         answerC: "C) *=",
@@ -82,6 +83,7 @@ var questions = [
 ]
 
 var runningQuestion = 0;
+var count = 0;
 
 function renderQuestion() {
     var q = questions[runningQuestion];
@@ -98,3 +100,19 @@ startBtn.addEventListener("click", function() {
     renderQuestion();
     quizEl.style.display = "block";
 });
+
+function checkAnswer(answer) {
+    if (answer == questions[runningQuestion].correctAnswer) {
+        count ++; 
+    } 
+
+    if (runningQuestion < 9) {
+        runningQuestion ++;
+        renderQuestion();
+    }
+    else {
+        quizEl.style.display = "none";
+        doneEl.style.display = "block";
+    }
+
+}
