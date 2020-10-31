@@ -1,4 +1,6 @@
 var introEl = document.getElementById("intro");
+var viewScore = document.getElementById("view-scores");
+var timeEl = document.getElementById("timer");
 var startBtn = document.getElementById("start-btn");
 var quizEl = document.getElementById("quiz-content");
 var question = document.getElementById("questions");
@@ -88,50 +90,89 @@ var questions = [
 
 var runningQuestion = 0;
 var ScoreCount = 0;
+var secondsLeft = 91;
 
-function renderQuestion() {
-    var q = questions[runningQuestion];
+    function renderQuestion() {
 
-    question.textContent = q.question;
-    answerA.textContent = q.answerA;
-    answerB.textContent = q.answerB;
-    answerC.textContent = q.answerC;
-    answerD.textContent = q.answerD;
-}
+        var q = questions[runningQuestion];
 
-startBtn.addEventListener("click", function() {
+        question.textContent = q.question;
+        answerA.textContent = q.answerA;
+        answerB.textContent = q.answerB;
+        answerC.textContent = q.answerC;
+        answerD.textContent = q.answerD;
+    }
+
+    // startBtn.addEventListener("click", function() {
+    //     introEl.style.display = "none";
+    //     renderQuestion();
+    //     quizEl.style.display = "block";
+    // });
+
+    // function correctAnswer() {
+    //     hinterEl.textContent = "Correct!"
+    // }
+
+    // function wrongAnswer() {
+    //     hinterEl.textContent = "Wrong!"
+    // }
+    
+    function checkAnswer(answer) {
+        if (answer == questions[runningQuestion].correctAnswer) {
+            ScoreCount ++; 
+        } 
+
+            if (runningQuestion < 9) {
+                runningQuestion ++;
+                renderQuestion();
+            }
+            
+            else {
+                // renderQuestion();
+                timeEl.style.display = "none";
+                quizEl.style.display = "none";
+                doneEl.style.display = "block";
+            }
+
+        totalScore.textContent = ScoreCount;
+    }
+
+    submitBtn.addEventListener("click", function() {
+        // doneEl.style.display = "none";
+        window.location.replace("./score.html");
+    });
+
+    viewScore.addEventListener("click", function() {
+        window.location.replace("./score.html");
+    });
+//}
+
+// backBtn.addEventListener("click", function() {
+//     showScore.style.display = "none";
+//     introEl.style.display = "block";
+// })
+
+// startOverProgress();
+var secondsLeft = 91;
+
+function timer() {
+    //var secondsleft = 90;
+    var timerInterval = setInterval(function() {
+      secondsLeft--;
+      timeEl.textContent = secondsLeft;
+  
+      if(secondsLeft === 0) {
+        clearInterval(timerInterval);
+        quizEl.style.display = "none";
+        doneEl.style.display = "block";
+      }
+  
+    }, 1000);
+
     introEl.style.display = "none";
     renderQuestion();
     quizEl.style.display = "block";
-});
-
-function correctAnswer() {
-    hinterEl.textContent = "Correct!"
 }
 
-function wrongAnswer() {
-    hinterEl.textContent = "Wrong!"
-}
+startBtn.addEventListener("click", timer);
 
-function checkAnswer(answer) {
-    if (answer == questions[runningQuestion].correctAnswer) {
-        ScoreCount ++; 
-    } 
-
-    if (runningQuestion < 9) {
-        runningQuestion ++;
-        renderQuestion();
-    }
-    else {
-        quizEl.style.display = "none";
-        doneEl.style.display = "block";
-    }
-
-    totalScore.textContent = ScoreCount;
-
-}
-
-submitBtn.addEventListener("click", function() {
-    doneEl.style.display = "none";
-    showScore.style.display = "block";
-})

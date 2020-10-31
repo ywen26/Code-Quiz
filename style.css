@@ -18,6 +18,9 @@ body {
 
 #view-scores {
     margin-right: 200px;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 #time {
@@ -75,4 +78,18 @@ body {
 #submit-btn {
     padding: 5px 10px 5px 10px;
     font-size: 100%;
+}
+
+#show-score {
+    margin: 50px 42ex 0 42ex;
+}
+
+#show-score h2 {
+    font-size: 150%;
+}
+
+#back-btn, #clear-btn {
+    margin-right: 10px;
+    margin-top: 20px;
+    padding: 5px 10px 5px 10px;
 }
