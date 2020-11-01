@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: lightyellow;
+}
+
+.top {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    font-size: 120%;
+}
+
+#view-scores {
+    margin-right: 200px;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#time {
+    margin-left: 200px;
+}
+
+#intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px 42ex 0 42ex;
+}
+
+#intro p {
+    line-height: 1.2;
+    text-align: center;
+    font-size: 120%;
+}
+
+#start-btn {
+    font-size: 150%;
+    padding: 5px 20px 5px 20px;
+}
+
+#quiz-content {
+    margin: 50px 42ex 0 42ex;
+}
+
+#questions {
+    margin-bottom: 10px;
+    font-size: 130%;
+}
+
+#answer-A, #answer-B, #answer-C, #answer-D {
+    width: 100%;
+    margin-top: 10px;
+    text-align: left;
+    padding: 10px 0 10px 10px;
+    font-size: 100%;
+}
+
+#hinter {
+    margin-top: 25px;
+    border-top: black solid 1px;
+}
+
+#done {
+    margin: 50px 42ex 0 42ex;
+}
+
+#done h2{
+    font-size: 150%;
+}
+
+.done-section {
+    margin-top: 10px;
+    font-size: 120%;
+}
+
+#submit-btn {
+    padding: 5px 10px 5px 10px;
+    font-size: 100%;
+}
+
+#show-score {
+    margin: 50px 42ex 0 42ex;
+}
+
+#show-score h2 {
+    font-size: 150%;
+}
+
+#high-scores p {
+    margin-top: 5px;
+    padding: 1px 0 2px 5px;
+    font-size: 120%;
+    color: darkslategray;
+    background-color: lightgrey;
+}
+
+#back-btn, #clear-btn {
+    margin-right: 10px;
+    margin-top: 20px;
+    padding: 5px 10px 5px 10px;
+}
