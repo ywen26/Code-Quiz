@@ -93,6 +93,14 @@ body {
     font-size: 150%;
 }
 
+#high-scores p {
+    margin-top: 5px;
+    padding: 1px 0 2px 5px;
+    font-size: 120%;
+    color: darkslategray;
+    background-color: lightgrey;
+}
+
 #back-btn, #clear-btn {
     margin-right: 10px;
     margin-top: 20px;
