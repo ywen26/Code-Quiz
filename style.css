@@ -125,4 +125,8 @@ body {
     #intro, #quiz-content, #done, #show-score {
         margin: 50px 14ex 0 14ex;
     }
+
+    #top {
+        margin: 10px, 12ex 0 14ex;
+    }
 }
