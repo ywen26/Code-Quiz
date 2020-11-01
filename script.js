@@ -196,7 +196,6 @@ viewScore.addEventListener("click", function() {
     doneEl.style.display = "none";
     ShowScoreList()
     showScore.style.display = "block";
-    return;
 });
 
 // List all the score records to show-score part
