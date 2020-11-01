@@ -107,14 +107,22 @@ body {
     padding: 5px 10px 5px 10px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 802px) {
     body {
         font-size: 70%;
+    }
+
+    #intro, #quiz-content, #done, #show-score {
+        margin: 50px 28ex 0 28ex;
     }
 }
 
 @media screen and (max-width: 576px) {
     body {
-        font-size: 40%;
+        font-size: 50%;
+    }
+
+    #intro, #quiz-content, #done, #show-score {
+        margin: 50px 14ex 0 14ex;
     }
 }
