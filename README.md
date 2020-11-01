@@ -2,7 +2,7 @@
 
 ## Task
 
-The purpose of this assignment is to create a web application of coding quiz challenge with html, CSS, and javascript with the field of API. This is a one hundred seconds quiz with ten multiple-choice questions to test the basic knowledge of front end languages including html, CSS and javascript. All the attempts of each user to this quiz will be save to their local browsers, and all the attempts can be cleared anytime.
+The purpose of this assignment is to create a web application of coding quiz challenge with html, CSS, and javascript with the field of API. This is a one hundred seconds quiz with ten multiple-choice questions to test the basic knowledge of front end languages including html, CSS and javascript. All the attempts of each user to this quiz will be saved to their local browsers, and all the attempts can be cleared anytime.
 
 ## Acceptance Criteria
 
@@ -26,3 +26,13 @@ Below are the appearance of the quiz application and the scores records after co
 
 ![quiz start page](./assets/screenshot.png)
 ![final scores list](./assets/screenshot2.png)
+
+## URL Sources
+
+Feel free to check the web application: [https://ywen26.github.io/Code-Quiz/](https://ywen26.github.io/Code-Quiz/)
+
+And github repository: [https://github.com/ywen26/Code-Quiz](https://github.com/ywen26/Code-Quiz)
+
+## Credits
+
+Questions source: [https://quizlet.com/latest](https://quizlet.com/latest)
