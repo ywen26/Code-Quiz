@@ -62,6 +62,11 @@ body {
     font-size: 100%;
 }
 
+#hinter {
+    margin-top: 25px;
+    border-top: black solid 1px;
+}
+
 #done {
     margin: 50px 42ex 0 42ex;
 }
