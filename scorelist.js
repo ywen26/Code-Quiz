@@ -13,11 +13,11 @@ if (scoreList !== null) {
     }
 }
 
+backBtn.addEventListener("click", function() {
+    window.location.replace("./index.html");       
+});
+
 clearBtn.addEventListener("click", function() {
     localStorage.removeItem("scoreList");
     location.reload();
-});
-
-backBtn.addEventListener("click", function() {
-    window.location.replace("./index.html");       
 });
