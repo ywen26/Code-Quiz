@@ -1,3 +1,4 @@
+// Assignment to the elements
 var introEl = document.getElementById("intro");
 var viewScore = document.getElementById("view-scores");
 var timeEl = document.getElementById("timer");
@@ -18,6 +19,7 @@ var highScore = document.getElementById("high-scores");
 var backBtn = document.getElementById("back-btn");
 var clearBtn = document.getElementById("clear-btn");
 
+// Quiz content are wrapped into objects
 var questions = [
     {
         question: "Inside which HTML element do we put the JavaScript?",
@@ -95,7 +97,9 @@ var questions = [
 var questionIndex = 0;
 var scoreCount = 0;
 var secondsLeft = 101;
+var timerInterval;
 
+// Put the quiz content to the container
 function renderQuestion() {
     var showQuestion = questions[questionIndex];
     question.textContent = showQuestion.question;
@@ -105,8 +109,9 @@ function renderQuestion() {
     answerD.textContent = showQuestion.answerD;
 }
 
+// Set up timer when quiz starts
 function timer() {
-    var timerInterval = setInterval(function() {
+    timerInterval = setInterval(function() {
         secondsLeft--;
         timeEl.textContent = secondsLeft;
       
@@ -122,17 +127,21 @@ function timer() {
     renderQuestion();
     quizEl.style.display = "block";
 }
-    
+
+// Assign the start-button to start quiz and the timer
 startBtn.addEventListener("click", timer);
 
+// Set the hinter when the answer is wrong
 function correctAnswer() {
     hinterEl.textContent = "Correct!"
 }
 
+// Set the hinter when the answer is correct
 function wrongAnswer() {
     hinterEl.textContent = "Wrong!"
 }
-    
+ 
+// Check the answer correct or not
 function checkAnswer(answer) {
     if (answer == questions[questionIndex].correctAnswer) {
         scoreCount ++; 
@@ -148,7 +157,7 @@ function checkAnswer(answer) {
         renderQuestion();
     }   
     else {
-        timeEl.style.display = "none";
+        clearInterval(timerInterval);
         quizEl.style.display = "none";
         doneEl.style.display = "block";
     }
@@ -156,8 +165,8 @@ function checkAnswer(answer) {
     totalScore.textContent = scoreCount;
 }
 
-submitBtn.addEventListener("click", function(event) {
-    event.stopPropagation;
+// assign the submit-button to submit score record
+submitBtn.addEventListener("click", function() {
 
     var initialInput = initialEl.value;
     var finalScore = {initials: initialInput, score: scoreCount};
@@ -180,6 +189,7 @@ submitBtn.addEventListener("click", function(event) {
     showScore.style.display = "block";
 });
 
+// Assign the view score option to view all score records
 viewScore.addEventListener("click", function() {
     introEl.style.display = "none";
     quizEl.style.display = "none";
@@ -188,6 +198,7 @@ viewScore.addEventListener("click", function() {
     showScore.style.display = "block";
 });
 
+// List all the score records to show-score part
 function ShowScoreList() {
     var scoreList = localStorage.getItem("scoreList");
     scoreList = JSON.parse(scoreList);
@@ -201,10 +212,12 @@ function ShowScoreList() {
     }
 }
 
+// Back to start and refresh the page
 backBtn.addEventListener("click", function() {
     location.reload();       
 });
 
+// Clear all the records and back to start 
 clearBtn.addEventListener("click", function() {
     localStorage.removeItem("scoreList");
     location.reload();

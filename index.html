@@ -7,33 +7,37 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+    <!-- Add view score options and show the timer at the top of page -->
     <div class="top">
         <div id="view-scores">View Scores</div>
         <div id="time">Time: <span id="timer"> </span></div>
     </div>
 
+    <!-- The Introduction part of the quiz -->
     <div id="intro">
         <h1>Coding Quiz Challenge</h1>
         <br>
         <p>
             You will have 100 seconds to complete this 10 multiple-choice questions quiz. Each 
             question only has one correct answer and you will get one point for each question 
-            if you answer correctly, and you won't be able to go back to previous questions once 
-            you select answer. Try you best to get the high scores!
+            if you answer correctly, and you will get the penalty of time subtraction if your 
+            answer wrong. Try you best to get the high scores!
         </p>
         <br>
         <button id="start-btn">Start</button>
     </div>
 
+    <!-- Quiz content container -->
     <div id="quiz-content" style="display: none">
         <h3 id="questions"></h3>
-        <button id="answer-A" onclick="checkAnswer('A')" onclick="stopTimer()"></button>
-        <button id="answer-B" onclick="checkAnswer('B')" onclick="stopTimer()"></button>
-        <button id="answer-C" onclick="checkAnswer('C')" onclick="stopTimer()"></button>
-        <button id="answer-D" onclick="checkAnswer('D')" onclick="stopTimer()"></button>
+        <button id="answer-A" onclick="checkAnswer('A')"></button>
+        <button id="answer-B" onclick="checkAnswer('B')"></button>
+        <button id="answer-C" onclick="checkAnswer('C')"></button>
+        <button id="answer-D" onclick="checkAnswer('D')"></button>
         <p id="hinter"></p>
     </div>
 
+    <!-- The part to show score and initial input -->
     <div id ="done" style="display:none">
         <h2>All done!</h2>
         <p class="done-section">Your final score is: <span id="total-score" class="done-section"> </span></p>
@@ -41,6 +45,7 @@
         <button id="submit-btn" class="done-section">submit</button>
     </div>
 
+    <!-- The score list to show the records -->
     <div id="show-score" style="display: none">
         <h2>Scores:</h2>
         <div id="high-scores"></div>
