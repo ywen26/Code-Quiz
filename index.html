@@ -16,7 +16,7 @@
         <h1>Coding Quiz Challenge</h1>
         <br>
         <p>
-            You will have two minutes to complete this 10 multiple-choice questions quiz. Each 
+            You will have 100 seconds to complete this 10 multiple-choice questions quiz. Each 
             question only has one correct answer and you will get one point for each question 
             if you answer correctly, and you won't be able to go back to previous questions once 
             you select answer. Try you best to get the high scores!
@@ -27,10 +27,10 @@
 
     <div id="quiz-content" style="display: none">
         <h3 id="questions"></h3>
-        <button id="answer-A" onclick="checkAnswer('A')"></button>
-        <button id="answer-B" onclick="checkAnswer('B')"></button>
-        <button id="answer-C" onclick="checkAnswer('C')"></button>
-        <button id="answer-D" onclick="checkAnswer('D')"></button>
+        <button id="answer-A" onclick="checkAnswer('A')" onclick="stopTimer()"></button>
+        <button id="answer-B" onclick="checkAnswer('B')" onclick="stopTimer()"></button>
+        <button id="answer-C" onclick="checkAnswer('C')" onclick="stopTimer()"></button>
+        <button id="answer-D" onclick="checkAnswer('D')" onclick="stopTimer()"></button>
         <p id="hinter"></p>
     </div>
 
@@ -41,6 +41,13 @@
         <button id="submit-btn" class="done-section">submit</button>
     </div>
 
+    <div id="show-score" style="display: none">
+        <h2>Scores:</h2>
+        <div id="high-scores"></div>
+        <button id="back-btn">Go Back</button>
+        <button id="clear-btn">Clear Scores</button>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>

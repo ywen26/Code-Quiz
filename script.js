@@ -13,6 +13,10 @@ var doneEl = document.getElementById("done");
 var totalScore = document.getElementById("total-score");
 var initialEl = document.getElementById("initial");
 var submitBtn = document.getElementById("submit-btn");
+var showScore = document.getElementById("show-score");
+var highScore = document.getElementById("high-scores");
+var backBtn = document.getElementById("back-btn");
+var clearBtn = document.getElementById("clear-btn");
 
 var questions = [
     {
@@ -88,19 +92,17 @@ var questions = [
     }
 ]
 
-var runningQuestion = 0;
+var questionIndex = 0;
 var scoreCount = 0;
-var secondsLeft = 91;
+var secondsLeft = 101;
 
 function renderQuestion() {
-
-    var q = questions[runningQuestion];
-
-    question.textContent = q.question;
-    answerA.textContent = q.answerA;
-    answerB.textContent = q.answerB;
-    answerC.textContent = q.answerC;
-    answerD.textContent = q.answerD;
+    var showQuestion = questions[questionIndex];
+    question.textContent = showQuestion.question;
+    answerA.textContent = showQuestion.answerA;
+    answerB.textContent = showQuestion.answerB;
+    answerC.textContent = showQuestion.answerC;
+    answerD.textContent = showQuestion.answerD;
 }
 
 function timer() {
@@ -132,7 +134,7 @@ function wrongAnswer() {
 }
     
 function checkAnswer(answer) {
-    if (answer == questions[runningQuestion].correctAnswer) {
+    if (answer == questions[questionIndex].correctAnswer) {
         scoreCount ++; 
         correctAnswer();
     } 
@@ -141,8 +143,8 @@ function checkAnswer(answer) {
         wrongAnswer();
     }
 
-    if (runningQuestion < 9) {
-        runningQuestion ++;
+    if (questionIndex < 9) {
+        questionIndex ++;
         renderQuestion();
     }   
     else {
@@ -154,7 +156,9 @@ function checkAnswer(answer) {
     totalScore.textContent = scoreCount;
 }
 
-submitBtn.addEventListener("click", function() {
+submitBtn.addEventListener("click", function(event) {
+    event.stopPropagation;
+
     var initialInput = initialEl.value;
     var finalScore = {initials: initialInput, score: scoreCount};
     var scoreList = localStorage.getItem("scoreList");
@@ -170,10 +174,38 @@ submitBtn.addEventListener("click", function() {
 
     var newAddScore = JSON.stringify(scoreList);
     localStorage.setItem("scoreList", newAddScore);
+    ShowScoreList();
         
-    window.location.replace("./score.html");
+    doneEl.style.display = "none";
+    showScore.style.display = "block";
 });
 
 viewScore.addEventListener("click", function() {
-    window.location.replace("./score.html");
+    introEl.style.display = "none";
+    quizEl.style.display = "none";
+    doneEl.style.display = "none";
+    ShowScoreList()
+    showScore.style.display = "block";
+});
+
+function ShowScoreList() {
+    var scoreList = localStorage.getItem("scoreList");
+    scoreList = JSON.parse(scoreList);
+
+    if (scoreList !== null) {
+        for (var i = 0; i < scoreList.length; i++) {
+            var record = document.createElement("p");
+            record.textContent = scoreList[i].initials + ": " + scoreList[i].score;
+            highScore.appendChild(record);
+        }
+    }
+}
+
+backBtn.addEventListener("click", function() {
+    location.reload();       
+});
+
+clearBtn.addEventListener("click", function() {
+    localStorage.removeItem("scoreList");
+    location.reload();
 });
