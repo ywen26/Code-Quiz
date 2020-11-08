@@ -1,5 +1,6 @@
 // Assignment to the elements
 var introEl = document.getElementById("intro");
+var topEl = document.getElementById("top");
 var viewScore = document.getElementById("view-scores");
 var timeEl = document.getElementById("timer");
 var startBtn = document.getElementById("start-btn");
@@ -94,10 +95,13 @@ var questions = [
     }
 ]
 
+// Assign some variables to be used for function
 var questionIndex = 0;
 var scoreCount = 0;
 var secondsLeft = 101;
 var timerInterval;
+var pause;
+var quizEnd;
 
 // Put the quiz content to the container
 function renderQuestion() {
@@ -107,6 +111,13 @@ function renderQuestion() {
     answerB.textContent = showQuestion.answerB;
     answerC.textContent = showQuestion.answerC;
     answerD.textContent = showQuestion.answerD;
+}
+
+// Pause the correct-or-wrong hinter until next question is answered
+function Pause() {
+    pause = setTimeout(function hinterDisappear() {
+        hinterEl.textContent = "";
+    }, 1000);
 }
 
 // Set up timer when quiz starts
@@ -140,16 +151,26 @@ function correctAnswer() {
 function wrongAnswer() {
     hinterEl.textContent = "Wrong!"
 }
+
+// End the quiz and turn to score-submit block after all questions are answered
+function endQuiz() {
+    quizEnd = setTimeout(function changeBlock() {
+        quizEl.style.display = "none";
+        doneEl.style.display = "block";
+    }, 1000);
+}
  
 // Check the answer correct or not
 function checkAnswer(answer) {
     if (answer == questions[questionIndex].correctAnswer) {
         scoreCount ++; 
         correctAnswer();
+        Pause();
     } 
     else {
         secondsLeft = secondsLeft - 5;
         wrongAnswer();
+        Pause();
     }
 
     if (questionIndex < 9) {
@@ -157,9 +178,8 @@ function checkAnswer(answer) {
         renderQuestion();
     }   
     else {
+        endQuiz();
         clearInterval(timerInterval);
-        quizEl.style.display = "none";
-        doneEl.style.display = "block";
     }
 
     totalScore.textContent = scoreCount;
@@ -186,6 +206,7 @@ submitBtn.addEventListener("click", function() {
     ShowScoreList();
         
     doneEl.style.display = "none";
+    topEl.style.display = "none";
     showScore.style.display = "block";
 });
 
@@ -194,13 +215,14 @@ viewScore.addEventListener("click", function() {
     introEl.style.display = "none";
     quizEl.style.display = "none";
     doneEl.style.display = "none";
-    ShowScoreList()
+    topEl.style.display = "none";
+    ShowScoreList();
     showScore.style.display = "block";
 });
 
 // List all the score records to show-score part
 function ShowScoreList() {
-    var scoreList = localStorage.getItem("scoreList");
+    scoreList = localStorage.getItem("scoreList");
     scoreList = JSON.parse(scoreList);
 
     if (scoreList !== null) {
